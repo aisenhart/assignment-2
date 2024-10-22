@@ -29,9 +29,9 @@ public class Main {
 
         while (!priorityQueue.isEmpty()) {
             Job job = priorityQueue.delMin();
-            currentTime += job.getProcessingTime();
+            currentTime = job.getProcessingTime();
             totalCompletionTime += currentTime;
-            System.out.println("Completed " + job + " at time " + currentTime);
+            System.out.println("Completed " + job);
         }
         double averageCompletionTime = (double) totalCompletionTime / jobs.length;
         System.out.println("Average Completion Time: " + averageCompletionTime);
