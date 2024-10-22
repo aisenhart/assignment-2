@@ -1,10 +1,17 @@
 public class Job implements Comparable<Job> {
-    private int identifier;
-    private int processingTime;
+    private final int identifier;
+    private final int processingTime;
+    private final int priority;
 
-    public Job(int id, int priority) {
+    public Job(int id, int priority, int processingTime) {
         this.identifier = id;
-        this.processingTime = priority;
+        this.processingTime = processingTime;
+        this.priority = priority;
+    }
+    public Job(int id, int processingTime) {
+        this.identifier = id;
+        this.processingTime = processingTime;
+        this.priority = 0;
     }
 
     public int getIdentifier() {
@@ -13,15 +20,28 @@ public class Job implements Comparable<Job> {
     public int getProcessingTime(){
         return processingTime;
     }
+    public int getPriority(){
+        return priority;
+    }
 
     @Override
     public int compareTo(Job other) {
-        return Integer.compare(this.processingTime, other.processingTime);
+       if(this.priority == other.priority){
+           return Integer.compare(this.processingTime, other.processingTime);
+       }
+       else if (this.priority > other.priority){
+           return 1;
+       }
+       else {return -1;}
+
     }
 
     @Override
     public String toString(){
-        return "Job ID: " + this.getIdentifier() + ", Processing Time: " + this.getProcessingTime();
+        if(this.priority == 0){
+            return "Job ID: " + this.getIdentifier() + ", Processing Time: " + this.getProcessingTime();
+        }
+        return "Job ID: " + this.getIdentifier() + ", Priority: " + this.getPriority()+   ", Processing Time: " + this.getProcessingTime();
     }
 }
 
