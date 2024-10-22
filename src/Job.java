@@ -18,7 +18,7 @@ public class Job implements Comparable<Job> {
     I am a bit confused with the Assignment, specifically with task 3
     It wants arrival time in the constructor, but I already have a constructor with 3 int parameters
     I feel as though arrival time should be a double. Which would solve the problem.
-*/
+
     public Job(int id, int processingTime, int arrivalTime){
         this.identifier = id;
         this.processingTime = processingTime;
@@ -26,6 +26,7 @@ public class Job implements Comparable<Job> {
         this.arrivalTime = arrivalTime;
 
     }
+    */
 
 
 
