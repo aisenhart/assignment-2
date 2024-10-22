@@ -1,9 +1,9 @@
-public class MaxPQ<Key extends Comparable<Key>> {
+public class MinPQ<Key extends Comparable<Key>> {
     private Key[] pq;
     private int n;
 
     @SuppressWarnings("unchecked")
-    MaxPQ(int capacity) {
+    MinPQ(int capacity) {
         pq = (Key[]) new Comparable[capacity + 1];
         n = 0;
     }
@@ -37,19 +37,28 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     private boolean less(int i, int j) {
-        return pq[i].compareTo(pq[j]) < 0;
+        return pq[i].compareTo(pq[j]) > 0;
     }
 
     boolean isEmpty() {
         return n == 0;
     }
 
-    Key max() {
+    Key min() {
         if (isEmpty()) throw new RuntimeException("Priority queue underflow");
         return pq[1];
     }
 
     int size() {
         return n;
+    }
+
+    Key delMin() {
+        if (isEmpty()) throw new RuntimeException("Priority queue underflow");
+        Key min = pq[1];
+        exch(1, n--);
+        sink(1);
+        pq[n + 1] = null;
+        return min;
     }
 }
