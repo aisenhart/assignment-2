@@ -14,7 +14,7 @@ public class MinPQ<Key extends Comparable<Key>> {
     }
 
     private void swim(int k) {
-        while (k > 1 && less(k / 2, k)) {
+        while (k > 1 && less(k, k / 2)) {
             exch(k, k / 2);
             k = k / 2;
         }
@@ -23,7 +23,7 @@ public class MinPQ<Key extends Comparable<Key>> {
     private void sink(int k) {
         while (2 * k <= n) {
             int j = 2 * k;
-            if (j < n && less(j, j + 1)) j++;
+            if (j < n && less(j + 1, j)) j++;
             if (!less(k, j)) break;
             exch(k, j);
             k = j;
@@ -37,7 +37,7 @@ public class MinPQ<Key extends Comparable<Key>> {
     }
 
     private boolean less(int i, int j) {
-        return pq[i].compareTo(pq[j]) > 0;
+        return pq[i].compareTo(pq[j]) < 0;
     }
 
     boolean isEmpty() {

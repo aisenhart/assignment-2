@@ -1,10 +1,9 @@
 public class Job implements Comparable<Job> {
-    private final int identifier;
-    private final int processingTime;
-    private final int priority;
-    //private final int arrivalTime;
+    public int identifier;
+    public int processingTime;
+    public int priority;
 
-    public Job(int id, int priority, int processingTime) {
+    public Job(int id, int processingTime, int priority) {
         this.identifier = id;
         this.processingTime = processingTime;
         this.priority = priority;
@@ -14,21 +13,6 @@ public class Job implements Comparable<Job> {
         this.processingTime = processingTime;
         this.priority = 0;
     }
-  /*
-    I am a bit confused with the Assignment, specifically with task 3
-    It wants arrival time in the constructor, but I already have a constructor with 3 int parameters
-    I feel as though arrival time should be a double. Which would solve the problem.
-
-    public Job(int id, int processingTime, int arrivalTime){
-        this.identifier = id;
-        this.processingTime = processingTime;
-        this.priority = 0;
-        this.arrivalTime = arrivalTime;
-
-    }
-    */
-
-
 
     public int getIdentifier() {
         return identifier;
@@ -39,6 +23,7 @@ public class Job implements Comparable<Job> {
     public int getPriority(){
         return priority;
     }
+
 
     @Override
     public int compareTo(Job other) {
