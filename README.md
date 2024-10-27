@@ -1,7 +1,6 @@
 # Authors
 
-- Andrew_Isenhart 49170426 
-- Jonathan_Scurtis 48881461
+- Andrew_Isenhart 49170426
 
 
 - Task 1:
